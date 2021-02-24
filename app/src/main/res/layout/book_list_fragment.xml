@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Book List"
+            app:title="Weather List"
             app:titleTextColor="@color/white" />
 
         <androidx.recyclerview.widget.RecyclerView
