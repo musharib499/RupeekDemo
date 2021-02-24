@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Rupeek Library</string>
+    <string name="welcome_in_currency_app">Welcome!! \n Rupeek </string>
+    <string name="author">Author: %s</string>
+    <string name="publisher">Publisher: %s</string>
+    <string name="publisher_date">Publisher Date: %s</string>
+    <string name="totalPage">Total Page: %d</string>
+    <string name="message">%s \n Please tap to reload.</string>
+    <string name="author_mushareb_ali">Author : Mushareb Ali</string>
+    <string name="no_data">No Data Found</string>
+    <string name="temp">%d °C</string>
+    <string name="wind">%d km/h</string>
+    <string name="rain">%d</string>
+
+</resources>
