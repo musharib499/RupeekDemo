@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import com.app.R
-import com.app.ui.fragment.WeatherListFragment
+import com.app.ui.fragment.CuisineListFragment
+import com.app.ui.fragment.DetailsListFragment
+import com.app.ui.fragment.OrderFragment
 import javax.inject.Inject
 
 /**
@@ -16,7 +18,9 @@ import javax.inject.Inject
 class AppNavigator @Inject constructor(val activity: FragmentActivity) : AppNavigatorInterface {
     override fun navigator(command: Command, currentFragment: Fragment?, b: Bundle?) {
         val fragment: Fragment = when (command) {
-            Command.HOME -> WeatherListFragment.newInstance()
+            Command.HOME -> CuisineListFragment.newInstance()
+            Command.DETAILS -> DetailsListFragment.newInstance()
+            Command.ORDER -> OrderFragment.newInstance()
         }
         fragment.let {
             b?.let { v -> it.arguments = v }
@@ -42,5 +46,7 @@ interface AppNavigatorInterface {
 }
 
 enum class Command {
-    HOME
+    HOME,
+    DETAILS,
+    ORDER
 }

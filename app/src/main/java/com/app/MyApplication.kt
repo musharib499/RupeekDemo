@@ -1,6 +1,9 @@
 package com.app
 
 import android.app.Application
+import android.content.Context
+import android.content.res.Configuration
+import com.app.locale.LocaleChanger
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -9,4 +12,17 @@ import dagger.hilt.android.HiltAndroidApp
  * musharib.ali@innobles.com
  */
 @HiltAndroidApp
-class MyApplication : Application()
+class MyApplication : Application(){
+    override fun onCreate() {
+        super.onCreate()
+        LocaleChanger.setLocale(baseContext, LocaleChanger.getLocaleFromPref(this))
+    }
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        LocaleChanger.overrideLocale(this)
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base?.let { LocaleChanger.wrapContext(it) })
+    }
+}

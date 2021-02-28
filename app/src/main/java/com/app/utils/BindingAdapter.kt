@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.R
-import com.app.data.api.LoadingState
 import com.app.ui.base.BaseAdapterBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -31,16 +30,18 @@ fun View.setIsVisible(isVisible: Boolean) {
 fun View.setEmptyText(message: String?) {
     this.visibility = if (TextUtils.isEmpty(message)) View.GONE else View.VISIBLE
 }
+@BindingAdapter("calculateGst")
+fun AppCompatTextView.setCalculateGStText(value: Float?) {
+    this.text = "\u20B9" +value.toString()
+}
+@BindingAdapter("calculateAmount")
+fun AppCompatTextView.setCalculateAmountText(value: Float?) {
+    this.text = "\u20B9" +value.toString()
+}
 
 @BindingAdapter("entity")
-fun RecyclerView.setEntity(data: List<Any>?) {
-    data?.let { (this.adapter as BaseAdapterBinding<Any>).setData(data) }
-
-}
-@BindingAdapter("dateTimeStamp")
-fun AppCompatTextView.setDateTimeStamp(time: Long?) {
-    var simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
-     this.text = simpleDateFormat.format(time)
+fun RecyclerView.setEntity(data: List<Any>) {
+   data?.let {if(!it.isEmpty()) (this.adapter as BaseAdapterBinding<Any>).setData(it)}
 
 }
 
@@ -51,22 +52,12 @@ fun ImageView.setImage(url: String?) {
     Glide.with(this.context)
             .load(url ?: "")
             .optionalCenterCrop()
-            .placeholder(R.drawable.placeholder)
+            .placeholder(R.drawable.chinese)
             .apply(RequestOptions.bitmapTransform(RoundedCorners(10)))
             .into(this);
 
 }
 
-@BindingAdapter("isLoading")
-fun ProgressBar.progressVisibility(loadingState: LoadingState?) {
-    loadingState?.let {
-        isVisible = when (it.status) {
-            LoadingState.Status.RUNNING -> true
-            LoadingState.Status.SUCCESS -> false
-            LoadingState.Status.FAILED -> false
-        }
-    }
-}
 
 
 
