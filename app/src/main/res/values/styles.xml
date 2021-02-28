@@ -5,6 +5,7 @@
     <style name="MainThem" parent="Theme.MaterialComponents.NoActionBar.Bridge">
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryDark">@color/purple_200</item>
+        <item name="android:windowBackground">@color/purple_500</item>
     </style>
 
     <style name="MainThem.Splash">

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OneBac</string>
+    <string name="app_name">OneBanc</string>
     <string name="welcome_in_currency_app">Welcome!! \n OneBac </string>
     <string name="message" translatable="false">%s \n Please tap to reload.</string>
     <string name="author_mushareb_ali" translatable="false">Author : Mushareb Ali</string>
